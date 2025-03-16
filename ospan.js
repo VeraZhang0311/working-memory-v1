@@ -19,11 +19,6 @@ function startOspanGame(participantID, onGameEnd) {
   jsPsych.randomization.setSeed('operationspan')
   var timeline = []
 
-  // var enter_fullscreen = {
-  //   type: jsPsychFullscreen,
-  //   fullscreen_mode: true,
-  // }
-
   ///////////////////////////////////////////
   // DEFINE TIMELINE AND GENERAL VARIABLES //
   ///////////////////////////////////////////
@@ -1209,7 +1204,6 @@ function startOspanGame(participantID, onGameEnd) {
   var ospan_final = {
     timeline: [
       welcome,
-      // enter_fullscreen,
       letter_practice_final,
       //   equation_practice_final,
       //   letterequation_practice_final,

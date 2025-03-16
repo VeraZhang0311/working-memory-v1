@@ -21,11 +21,6 @@ function startLspanGame(participantID, onGameEnd) {
   jsPsych.randomization.setSeed('listeningspan')
   var timeline = []
 
-  var enter_fullscreen = {
-    type: jsPsychFullscreen,
-    fullscreen_mode: true,
-  }
-
   ///////////////////////////////////////////
   // DEFINE TIMELINE AND GENERAL VARIABLES //
   ///////////////////////////////////////////
@@ -1348,7 +1343,6 @@ function startLspanGame(participantID, onGameEnd) {
   // VL: Added the preload object to preload all audio files before proceeding with the experiment
   var lspan_final = {
     timeline: [
-      enter_fullscreen,
       preload, // get_participant_id,
       letter_practice_final,
       // sentence_practice_final, // lettersentence_practice_final,

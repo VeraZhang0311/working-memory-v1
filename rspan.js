@@ -56,29 +56,6 @@ function startRspanGame(participantID, onGameEnd) {
   ///////////////////////////////////////////
   // INITIALIZE EXPERIMENT CONTEXT  /////////
   ///////////////////////////////////////////
-  var enter_fullscreen = {
-    type: jsPsychFullscreen,
-    fullscreen_mode: true,
-  }
-
-  //   var get_participant_id = {
-  //     type: jsPsychSurveyText,
-  //     questions: [
-  //       {
-  //         prompt: 'Please enter the participant ID:',
-  //         required: true,
-  //         name: 'participant_id',
-  //       },
-  //     ],
-  //     on_finish: function (data) {
-  //       jsPsych.data.addProperties({
-  //         participant_id: data.response.participant_id,
-  //       })
-
-  //       subject = data.response.participant_id
-  //     },
-  //   }
-
   var get_location = {
     type: jsPsychSurveyMultiChoice,
     questions: [
@@ -1409,7 +1386,6 @@ is not remembered, they are instructued to leave this box blank.
     timeline: [
       // get_participant_id, // get_location,
       welcome,
-      enter_fullscreen,
       letter_practice_final,
       //   sentence_practice_final,
       //   lettersentence_practice_final,

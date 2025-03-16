@@ -1428,18 +1428,12 @@ is not remembered, they are instructued to leave this box blank.
     },
   }
 
-  var enter_fullscreen = {
-    type: jsPsychFullscreen,
-    fullscreen_mode: true,
-  }
-
   //main sspan task
   var sspan_final = {
     timeline: [
       preload,
       // get_participant_id, // get_location,
       welcome,
-      enter_fullscreen,
       square_practice_final,
       picture_practice_final,
       //   squarepicture_practice_final,

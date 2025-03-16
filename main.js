@@ -5,9 +5,14 @@ function resetExperimentContainer() {
 }
 
 function startGame(gameFunction) {
+  if (!participantID) {
+    alert('Participant ID is missing. Please refresh the page.')
+    return
+  }
+
   document.getElementById('main-menu').style.display = 'none'
   document.getElementById('experiment-container').style.display = 'block'
-  gameFunction('participant_001', resetExperimentContainer)
+  gameFunction(participantID, resetExperimentContainer) // Pass ID properly
 }
 
 function startLspan() {
@@ -22,3 +27,12 @@ function startSspan() {
 function startRspan() {
   startGame(startRspanGame)
 }
+
+// Ask for participant ID before showing main menu
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('main-menu').style.display = 'none' // Hide menu initially
+  askForParticipantID(function (id) {
+    participantID = id
+    document.getElementById('main-menu').style.display = 'block' // Show main menu only after ID is entered
+  })
+})
