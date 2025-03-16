@@ -1,0 +1,8 @@
+# Ignore Prettier config files
+.prettierrc
+.prettierrc.json
+.prettierrc.yml
+.prettierrc.js
+.prettierrc.toml
+.prettierignore
+.prettiercache
