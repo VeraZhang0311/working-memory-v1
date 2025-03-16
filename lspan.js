@@ -1,19 +1,20 @@
 function startLspanGame(participantID, onGameEnd) {
-  document.getElementById('experiment-container').innerHTML = ''
-
   const jsPsych = initJsPsych({
+    display_element: 'experiment-container',
     on_finish: function () {
       const filename = `data_lspan_${participantID}.csv`
       jsPsych.data.get().localSave('csv', filename)
-
-      document.getElementById('experiment-container').innerHTML = '' // Only clear experiment content
-      document.getElementById('experiment-container').style.display = 'none' // Hide experiment container
-      document.getElementById('main-menu').style.display = 'block' // Show main menu again
-      onGameEnd() // Return to main menu
-
-      jsPsych = null // Destroy instance
+      onGameEnd() // Call the cleanup function
     },
   })
+
+  let experimentContainer = document.getElementById('experiment-container')
+  if (experimentContainer) {
+    experimentContainer.innerHTML = '' // Clear experiment content
+    console.log('experiment-container found!')
+  } else {
+    console.warn('experiment-container not found!')
+  }
 
   document.getElementById('experiment-container').innerHTML = '' // Ensure fresh start
 
@@ -1331,6 +1332,18 @@ function startLspanGame(participantID, onGameEnd) {
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
+  // final trial to bring user back to main menu
+  var returnToMenuScreen = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus:
+      '<p>The game is over. Click below to return to the main menu.</p>',
+    choices: ['Return to Main Menu'],
+    on_finish: function () {
+      document.getElementById('experiment-container').style.display = 'none'
+      document.getElementById('main-menu').style.display = 'block'
+    },
+  }
+
   // main lspan task
   // VL: Added the preload object to preload all audio files before proceeding with the experiment
   var lspan_final = {
@@ -1338,8 +1351,9 @@ function startLspanGame(participantID, onGameEnd) {
       enter_fullscreen,
       preload, // get_participant_id,
       letter_practice_final,
-      sentence_practice_final, // lettersentence_practice_final,
+      // sentence_practice_final, // lettersentence_practice_final,
       // final_combined_runs, lspan_done, lspan_summary,
+      returnToMenuScreen,
     ],
   }
 

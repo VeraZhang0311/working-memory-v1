@@ -1,29 +1,10 @@
 function startOspanGame(participantID, onGameEnd) {
-  document.getElementById('experiment-container').innerHTML = ''
-
   const jsPsych = initJsPsych({
     display_element: 'experiment-container',
     on_finish: function () {
-      const filename = `data_lspan_${participantID}.csv`
+      const filename = `data_ospan_${participantID}.csv`
       jsPsych.data.get().localSave('csv', filename)
-
-      // let experimentContainer = document.getElementById('experiment-container')
-      // let mainMenu = document.getElementById('main-menu')
-
-      // if (experimentContainer) {
-      //   experimentContainer.innerHTML = '' // Clear experiment content
-      //   experimentContainer.style.display = 'none' // Hide experiment
-      // } else {
-      //   console.warn('experiment-container not found!')
-      // }
-
-      // if (mainMenu) {
-      //   mainMenu.style.display = 'block' // Show main menu
-      // } else {
-      //   console.warn('main-menu not found!')
-      // }
-
-      onGameEnd()
+      onGameEnd() // Call the cleanup function
     },
   })
 
@@ -34,7 +15,6 @@ function startOspanGame(participantID, onGameEnd) {
   } else {
     console.warn('experiment-container not found!')
   }
-  // document.getElementById('experiment-container').innerHTML = '' // Ensure fresh start
 
   jsPsych.randomization.setSeed('operationspan')
   var timeline = []
@@ -1213,7 +1193,7 @@ function startOspanGame(participantID, onGameEnd) {
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
-  // Add a final trial to bring user back to main menu
+  // final trial to bring user back to main menu
   var returnToMenuScreen = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
