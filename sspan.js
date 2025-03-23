@@ -16,6 +16,10 @@ function startSspanGame(participantID, onGameEnd) {
     console.warn('experiment-container not found!')
   }
 
+  jsPsych.data.addProperties({
+    participant_id: participantID,
+  })
+
   jsPsych.randomization.setSeed('spansymmetry')
   var timeline = []
 
@@ -1416,15 +1420,16 @@ is not remembered, they are instructued to leave this box blank.
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
-  // final trial to bring user back to main menu
-  var returnToMenuScreen = {
+  // final trial to bring user to the next game
+  var nextGame = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      '<p>The game is over. Click below to return to the main menu.</p>',
-    choices: ['Return to Main Menu'],
+      '<p style="font-size: 25px;">Click continue to move on to the next task.</p>',
+    choices: ['Continue'],
+    button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function () {
+      document.getElementById('experiment-container').innerHTML = ''
       document.getElementById('experiment-container').style.display = 'none'
-      document.getElementById('main-menu').style.display = 'block'
     },
   }
 
@@ -1441,7 +1446,7 @@ is not remembered, they are instructued to leave this box blank.
       //   final_combined_runs,
       //   sspan_done,
       //   sspan_summary,
-      returnToMenuScreen,
+      nextGame,
     ],
   }
 
