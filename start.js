@@ -30,7 +30,7 @@ function askForParticipantID(onIDEntered) {
     type: jsPsychSurveyMultiSelect,
     questions: [
       {
-        prompt: 'Select the games to play (in desired order):',
+        prompt: 'Select the games to play:',
         name: 'games',
         options: ['LSPAN', 'OSPAN', 'SSPAN', 'RSPAN'],
         required: true,
@@ -55,7 +55,7 @@ function askForParticipantID(onIDEntered) {
         <h2>🚀 Welcome, Cadet!</h2>
         <p>You’ve been chosen for a critical mission on board the research ship <em>Cognitus</em>.</p>
         <p>Your task? Travel through memory galaxies and help us collect important data for the Intergalactic Brain Alliance.</p>
-        <p>Each task is a memory-based challenge designed to test your mind under cosmic pressure.</p>
+        <p>Each task is a <b>memory-based</b> challenge designed to test your mind under cosmic pressure.</p>
         <p>Complete them all to make it back to Earth a hero!</p>
         <p>Click the button below to begin your first challenge.</p>
       </div>
@@ -63,7 +63,7 @@ function askForParticipantID(onIDEntered) {
     choices: ['Launch Mission'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function () {
-      jsPsych.endExperiment() // Finish jsPsych timeline before switching to custom game logic
+      jsPsych.endExperiment()
       onIDEntered(selectedGameFunctions)
     },
   }

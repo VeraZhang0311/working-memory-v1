@@ -191,9 +191,9 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_instruct_1 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'><b>Listening and Memory Task</b></p><p style='font-size:25px'>In this task, you will try to memorize letters you hear while you also listen to sentences.</p>" +
-      "<p style='font-size:25px'>In the next few minutes, you will have some practice to get you familiar with how the task works.</p>" +
-      "<p style='font-size:25px'>We will begin by practicing the letter part of the task.</p>",
+      '<h1><b>📡 Alien Signal Training</b></h1>' +
+      "<p style='font-size:25px'>Cadet, your first task is to train your ears and memory to pick up alien signals.</p>" +
+      "<p style='font-size:25px'>You’ll start with a warm-up round focused just on signal (letter) memory. <br><br>Let’s get you ready!</p><br>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -206,46 +206,52 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_instruct_2 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>For this practice set, you will hear letters one at a time. Try to remember each letter in the order you hear them.</p>" +
-      "<p style='font-size:25px'>After you hear 2-3 letters, you will see a response screen.</p>" +
-      "<p style='font-size:25px'>Your job is to report the letters you heard <b>in order</b>. If you do not remember a particular letter, you will have the option to leave it blank.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var lspan_instruct_3 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>Remember, it is very important to get the letters in the same order as you hear them.</p>" +
-      "<p style='font-size:25px'>When you're ready, you may begin the letter practice.</p>",
+      "<p style='font-size:25px'>You’ll hear a few alien signal letters, one at a time.</p>" +
+      "<p style='font-size:25px'>Try to remember them in the order you hear them.</p>" +
+      "<p style='font-size:25px'>After 2–3 letters, you’ll enter recall mode and report them <b>in order</b>.</p>" +
+      "<p style='font-size:25px'>If you do not remember a particular letter, you will have the option to leave it blank.</p>" +
+      "<p style='font-size:25px'>Ready to begin your signal memory drill?</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
   //Sentence Instructions
-  var lspan_instruct_4 = {
+  var lspan_instruct_3 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>Now you will practice doing the sentence listening part of the experiment.</p>" +
-      "<p style='font-size:25px'>A fixation cross will appear on the screen, signalling that you will hear a sentence like the following:</p><p style='font-size: 30px;'><b>An article of clothing that is worn on the foot is a sock.</b></p>" +
-      "<p style='font-size:25px'>You should listen to the sentence carefully and determine if what it says is true or not. The above sentence is true.</p>" +
-      "<p style='font-size:25px'>An example of a sentence that is not true would be:</p><p style='font-size: 30px;'><b>A part of the body that is attached to the shoulder is the toe.</b></p>" +
-      "<p style='font-size:25px'>After you hear the sentence, the cross will disappear.</p>",
+      '<h1><b>🧠 Sentence Logic Training</b></h1>' +
+      "<p style='font-size:25px'>Cadet, we’ve intercepted alien intelligence containing facts about Earth.</p>" +
+      "<p style='font-size:25px'>Some of this intel was accurate. Some… not so much.</p>" +
+      "<p style='font-size:25px'>Your next training is to analyze each transmission and decide whether it’s true or false.</p>" +
+      "<p style='font-size:25px'><b>Example (True):</b> An article of clothing worn on the foot is a sock.</p>" +
+      "<p style='font-size:25px'><b>Example (False):</b> A part of the body attached to the shoulder is the toe.</p>" +
+      "<p style='font-size:25px'>After each sentence, the signal will end and you’ll respond.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
+  var lspan_instruct_4 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus:
+      "<p style='font-size:25px'>Accuracy counts! Let's practice identifying true and false statements.</p>" +
+      "<p style='font-size:25px'>Ready to fire up your reasoning engine?</p>",
+    choices: ['BEGIN PRACTICE'],
+    post_trial_gap: 250,
+    button_html: '<button class="buttonStyle">%choice%</button>',
+  }
+
+  //Combined Instructions
   var lspan_instruct_5 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>You will then see the following prompt displayed on the next screen:</p>" +
-      "<p style='font-size:30px'>Is the sentence true?</p>" +
-      "<p style='font-size:25px'>along with a box marked TRUE and a box marked FALSE.</p>" +
-      "<p style='font-size:25px'>If the sentence on the previous screen was true, click on the TRUE box. If the sentence was false, click on the FALSE box.</p>" +
-      "<p style='font-size:25px'>After you click on one of the boxes, the computer will tell you if you made the right choice.</p>",
+      '<h1><b>🛰️ Dual Task Simulation</b></h1>' +
+      "<p style='font-size:25px'>Now it’s time to put your training to the test. You’ll be doing both parts of the mission at once.</p>" +
+      "<p style='font-size:25px'>First, you'll hear a piece of alien intel. Decide quickly if it’s true or false.</p>" +
+      "<p style='font-size:25px'>Then, a signal letter will come through. Remember it -- order matters.</p>" +
+      "<p style='font-size:25px'>You’ll go back and forth like this: sentence, letter, sentence, letter...</p>" +
+      "<p style='font-size:25px'>At the end of each sequence, you’ll recall the letters in the exact order you received them.</p><br>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -254,45 +260,11 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_instruct_6 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>It is VERY important that you correctly answer whether the sentences are true or false.</p>" +
-      "<p style='font-size:25px'>When you are ready, click on the button below to practice.</p>",
-    choices: ['BEGIN PRACTICE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  //Combined Instructions
-  var lspan_instruct_7 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>Now you will practice doing both parts of the experiment at the same time.</p>" +
-      "<p style='font-size:25px'>In the next practice set, you will hear one sentence. Once you make your decision about the sentence,</br>you will hear a letter. Try and remember the letter.</p>" +
-      "<p style='font-size:25px'>In the previous section where you only heard the sentences, the computer computed your average time to judge whether the sentence was true or false.</br>If you take significantly longer than your average time, the computer will automatically move you onto the next letter part, </br>thus counting your judgment on the sentence as an error.</p>" +
-      "<p style='font-size:25px'>Therefore it is VERY important to listen to the sentences carefully and judge them as quickly and accurately as possible.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var lspan_instruct_8 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>After you hear a letter, you will hear another sentence, and then another letter.</p>" +
-      "<p style='font-size:25px'>At the end of each set of letters and sentences, you will recall the letters you heard to the best of your ability.</br>Remember, try your best to get the letters in the correct order.</p>" +
-      "<p style='font-size:25px'>It is important to work QUICKLY and ACCURATELY on the sentences.</p>" +
-      "<p style='font-size:25px'> After the letter recall screen, you will be given feedback about your performance</br>regarding the number of letters you correctly recalled.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var lspan_instruct_9 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>On the feedback screen, you will also see a number in the top right corner.</br>This indicates your percent correct for answering whether the sentences were true for the entire experiment.</p>" +
-      "<p style='font-size:25px'>It is VERY important for you to keep this at least at 85%.</br>For our purposes, we can only use data where the participant was at least 85% accurate on the sentences.</p>" +
-      "<p style='font-size:25px'>Therefore, please try your best to perform at least at 85% on the sentences</br>WHILE doing your best to recall as many letters as possible.</p>" +
-      "<p style='font-size:25px'>Click the button to practice.</p>",
+      "<p style='font-size:25px'>⚠️ <b>Heads up</b>: We’ve calculated your average response time. If you take too long to decide on a sentence, we’ll skip ahead and count it as a mistake.</p>" +
+      "<p style='font-size:25px'>So stay sharp -- respond quickly and accurately!</p><br>" +
+      "<p style='font-size:25px'>After each set, you’ll see how well you did recalling letters and your overall sentence accuracy.</p>" +
+      "<p style='font-size:25px'><b>Your mission score must stay above 85% accuracy on the sentences.</b></p>" +
+      "<p style='font-size:25px'>This is critical for mission success. Give it your all, cadet!</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -302,16 +274,15 @@ function startLspanGame(participantID, onGameEnd) {
   }
 
   //Wrap-up / final screen before main task
-  var lspan_instruct_10 = {
+  var lspan_instruct_7 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>That is the end of practice.</p>" +
-      "<p style='font-size:25px'>The real trials will be just like the practice trials you just completed.</br>First, you will hear a sentence, then a letter to remember.</p>" +
-      "<p style='font-size:25px'>When the recall screen appears, report the letters in the order you heard them. If you forget a letter, remember to use the BLANK button to move to the next letter.</p>" +
-      "<p style='font-size:25px'>Some of the sets will have more sentences and letters than others.</br>It is important that you do your best on both the sentences and the letter recall parts of the experiment.</p>" +
-      "<p style='font-size:25px'>Remember for the sentences you must work as QUICKLY and ACCURATELY as possible.</br>Remember to keep your sentence accuracy at 85% or above.</p>" +
-      "<p style='font-size:25px'><b>Do NOT use any external aid (e.g., paper and pencil, word processor) to write down the letters.</b></br>This task is meant to be challenging.</p>" +
-      "<p style='font-size:25px'>Click the button to begin.</p>",
+      '<h2><b>Training complete. Time for the real mission.</b></h2>' +
+      "<p style='font-size:25px'>Each round: Hear a sentence, answer TRUE/FALSE, then remember the letter.</p>" +
+      "<p style='font-size:25px'>After each sequence, recall all the letters in order. Use the Skip button if you forget one.</p>" +
+      "<p style='font-size:25px'>Some rounds will be tougher -- stay focused. Aim for speed and accuracy.</p>" +
+      "<p style='font-size:25px'><b>No tools allowed -- no notes, no typing helpers. It’s just you and your brain.</b></p>" +
+      "<p style='font-size:25px'>Ready to prove yourself, space cadet?</p>",
     choices: ['BEGIN'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -978,7 +949,7 @@ function startLspanGame(participantID, onGameEnd) {
   ///////////////////////
 
   var letter_instructions = {
-    timeline: [lspan_instruct_1, lspan_instruct_2, lspan_instruct_3],
+    timeline: [lspan_instruct_1, lspan_instruct_2],
   }
 
   var practice_twoletter_trial = {
@@ -1018,7 +989,7 @@ function startLspanGame(participantID, onGameEnd) {
   /////////////////////////
 
   var sentence_instructions = {
-    timeline: [lspan_instruct_4, lspan_instruct_5, lspan_instruct_6],
+    timeline: [lspan_instruct_3, lspan_instruct_4],
   }
 
   var sentence_practice = {
@@ -1085,7 +1056,7 @@ function startLspanGame(participantID, onGameEnd) {
   ////////////////////////////////
 
   var lettersentence_instructions = {
-    timeline: [lspan_instruct_7, lspan_instruct_8, lspan_instruct_9],
+    timeline: [lspan_instruct_5, lspan_instruct_6],
   }
 
   // VL: Modified in listening span to replace `if_timeout_practice` with actual `sentence_judgment_practice_combined` because timeout occurs in judgment window
@@ -1118,7 +1089,7 @@ function startLspanGame(participantID, onGameEnd) {
       lettersentence_instructions,
       letterpractice_run,
       letterpractice_run,
-      lspan_instruct_10,
+      lspan_instruct_7,
     ],
   }
 
@@ -1294,7 +1265,9 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_done = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>Thank you for your responses.</br></br>This completes the reading and memory task.</p>",
+      '<h1><b>🧠 Mission Debrief: Complete</b></h1>' +
+      "<p style='font-size:25px'>Thanks for decoding alien intel and storing critical signal data.</br></br>You’ve completed the Listening & Memory simulation.</p>" +
+      "<p style='font-size:25px'>Let’s review your mission performance.</p>",
     choices: ['CONTINUE'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function (data) {
@@ -1315,19 +1288,19 @@ function startLspanGame(participantID, onGameEnd) {
     type: jsPsychHtmlButtonResponse,
     stimulus: function () {
       return (
-        "<p style='font-size:25px'>There are two scores typically associated with this task. The first is your TOTAL score.</br>" +
-        'This reflects the number of letters you correctly identified. The second is your ABSOLUTE SCORE.</br>This reflects the number of letters you correctly ' +
-        'identified <b>only on trials in which you correctly identified all of the letters.</b></p><p>For example, if you correctly recalled 3 of 4 letters on a trial,</br> ' +
-        'your TOTAL score would increase by 3 but your ABSOLUTE score would increase by 0, as you did not correctly identify all of the letters.</br>' +
-        'If you correctly recalled 4 of 4 letters on a trial, both your TOTAL and ABSOLUTE score would increase by 4.</p>' +
-        "<p style='font-size:25px'></br></br>Your <b>TOTAL</b> score was " +
+        "<p style='font-size:25px'><b>📊 Performance Summary</b></p>" +
+        "<p style='font-size:25px'>There are two key metrics from this simulation:</p>" +
+        "<p style='font-size:25px'><b>TOTAL Score:</b> Letters correctly recalled across all rounds.</p>" +
+        "<p style='font-size:25px'><b>ABSOLUTE Score:</b> Letters correctly recalled <b>only</b> on rounds where you got the entire set right.</p>" +
+        "<p style='font-size:25px'><br>Your <b>TOTAL</b> score: " +
         LSPAN_TOTAL +
-        '.</p><p>Your <b>ABSOLUTE</b> score was ' +
+        '</p>' +
+        "<p style='font-size:25px'>Your <b>ABSOLUTE</b> score: " +
         LSPAN_ABS +
-        '.</p>'
+        '</p>'
       )
     },
-    choices: ['Exit'],
+    choices: ['OK'],
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
@@ -1335,8 +1308,9 @@ function startLspanGame(participantID, onGameEnd) {
   var nextGame = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      '<p style="font-size: 25px;">Click continue to move on to the next task.</p>',
-    choices: ['Continue'],
+      '<p style="font-size:25px">🚀 Preparing for your next challenge...</p>' +
+      '<p style="font-size:25px">Click NEXT when you’re ready to move on to your next task!</p>',
+    choices: ['NEXT'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function () {
       document.getElementById('experiment-container').innerHTML = ''
@@ -1348,10 +1322,13 @@ function startLspanGame(participantID, onGameEnd) {
   // VL: Added the preload object to preload all audio files before proceeding with the experiment
   var lspan_final = {
     timeline: [
-      preload, // get_participant_id,
+      preload,
       letter_practice_final,
-      // sentence_practice_final, // lettersentence_practice_final,
-      // final_combined_runs, lspan_done, lspan_summary,
+      sentence_practice_final,
+      lettersentence_practice_final,
+      final_combined_runs,
+      lspan_done,
+      lspan_summary,
       nextGame,
     ],
   }
