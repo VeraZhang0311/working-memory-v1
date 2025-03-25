@@ -250,7 +250,7 @@ function startLspanGame(participantID, onGameEnd) {
       "<p style='font-size:25px'>Now it’s time to put your training to the test. You’ll be doing both parts of the mission at once.</p>" +
       "<p style='font-size:25px'>First, you'll hear a piece of alien intel. Decide quickly if it’s true or false.</p>" +
       "<p style='font-size:25px'>Then, a signal letter will come through. Remember it -- order matters.</p>" +
-      "<p style='font-size:25px'>You’ll go back and forth like this: sentence, letter, sentence, letter...</p>" +
+      "<p style='font-size:25px'>You’ll go back and forth like this: sentence → letter → sentence → letter...</p>" +
       "<p style='font-size:25px'>At the end of each sequence, you’ll recall the letters in the exact order you received them.</p><br>" +
       "<p style='font-size:25px'>⚠️ <b>Heads up</b>: We’ve calculated your average response time. If you take too long to decide on a sentence, we’ll skip ahead and count it as a mistake.</p>" +
       "<p style='font-size:25px'>So stay sharp -- respond quickly and accurately!</p>",
@@ -1266,7 +1266,7 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_done = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      '<h1><b>🧠 Mission Debrief: Complete</b></h1>' +
+      '<h1><b>🧠 Mission EchoCore Complete</b></h1>' +
       "<p style='font-size:25px'>Thanks for decoding alien intel and storing critical signal data.</br></br>You’ve completed the Listening & Memory simulation.</p>" +
       "<p style='font-size:25px'>Let’s review your mission performance.</p>",
     choices: ['CONTINUE'],
@@ -1289,7 +1289,7 @@ function startLspanGame(participantID, onGameEnd) {
     type: jsPsychHtmlButtonResponse,
     stimulus: function () {
       return (
-        "<p style='font-size:25px'><b>📊 Performance Summary</b></p>" +
+        "<p style='font-size:25px'><b>📊 Mission Summary</b></p>" +
         "<p style='font-size:25px'><b>TOTAL Score:</b> Letters correctly recalled across all rounds.</p>" +
         "<p style='font-size:25px'><b>ABSOLUTE Score:</b> Letters correctly recalled <b>only</b> on rounds where you got the entire set right.</p>" +
         "<p style='font-size:25px'><br>Your <b>TOTAL</b> score: " +

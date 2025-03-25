@@ -160,9 +160,9 @@ function startSspanGame(participantID, onGameEnd) {
   var sspan_instruct_1 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'><b>Picture and Memory Task</b></p><p style='font-size:25px'>In this task, you will try to memorize the position of colored squares you see on the screen while you also make judgments about other pictures.</p>" +
-      "<p style='font-size:25px'>In the next few minutes, you will have some practice to get you familiar with how the task works.</p>" +
-      '<p style="font-size:25px">We will begin by practicing the "square" part of the task.</p>',
+      '<h1><b>🧠 Control Panel Memory Task</b></h1>' +
+      "<p style='font-size:25px'>Cadet, your next training mission involves <br><br>mapping square locations on the ship's control panel while checking alien totems.</p>" +
+      "<p style='font-size:25px'>Let’s start with the square memory system.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -175,33 +175,36 @@ function startSspanGame(participantID, onGameEnd) {
   var sspan_instruct_2 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>For this practice set, squares will appear on the screen one at a time. Try to remember where each square was, in the order it was presented.</p>" +
-      "<p style='font-size:25px'>After 2 squares have been shown, you will see a grid of the 16 possible places the squares could have been.</p>" +
-      "<p style='font-size:25px'>Your job is to select each square <b>in the order presented</b>. If you forget one of the squares, you will have the option to mark the spot for the missing square.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var sspan_instruct_3 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>Remember, it is very important to get the squares in the same order as you see them.</p>" +
-      "<p style='font-size:25px'>When you're ready, you may begin the square practice.</p>",
+      "<p style='font-size:25px'>You’ll see colored squares light up one at a time.</p>" +
+      "<p style='font-size:25px'>Memorize their positions in the exact order they appear.</p>" +
+      "<p style='font-size:25px'>After two squares, you’ll see a 4x4 grid. Select the positions <b>in order</b>. You can mark blanks if needed.</p>" +
+      "<p style='font-size:25px'>Order matters, cadet! Accuracy is key to keeping the control system running.</p>" +
+      "<p style='font-size:25px'>Begin your square memory warm-up now.</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
   //Picture Instructions
+  var sspan_instruct_3 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus:
+      "<p style='font-size:25px'><b>👾 Alien Totem Analysis</b></p>" +
+      "<p style='font-size:25px'>You’ll now examine mysterious totems intercepted from deep space transmissions.</p>" +
+      "<p style='font-size:25px'>Your job is to decide if each totem is <i>symmetrical</i> -- meaning the left and right sides mirror each other vertically.</p>" +
+      "<p style='font-size:25px'>Here's an example of a symmetrical alien totem:</p>" +
+      "<img src='SymBitmaps/example_symm1.bmp' width='500px' height='350px'><br>" +
+      "<p style='font-size:18px'>The red line won’t be shown during the real task—it’s just here to help you practice.</p>",
+    choices: ['CONTINUE'],
+    post_trial_gap: 250,
+    button_html: '<button class="buttonStyle">%choice%</button>',
+  }
+
   var sspan_instruct_4 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>Now you will practice doing the symmetry part of the task.</p>" +
-      "<p style='font-size:25px'>A picture will appear on the screen, and you will have to decide if it is <i>symmetrical</i>. A picture is <i>symmetrical</i> if it can fold in half vertically and the picture on the left lines up with the picture on the right, like this:</p><br>" +
-      "<img src='SymBitmaps/example_symm1.bmp' width = '500px', height = '350px'><br>" +
-      "<p style='font-size:25px'>Notice that this picture is symmetrical about the red line.</p>" +
-      "<p style='font-size:25px'>In the real pictures, the line will not be present.</p>",
+      "<img src='SymBitmaps/example_symm2.bmp' width='500px' height='350px'><br>" +
+      "<p style='font-size:25px'>This alien totem is <b>NOT</b> symmetrical -- the sides don’t line up.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -210,9 +213,8 @@ function startSspanGame(participantID, onGameEnd) {
   var sspan_instruct_5 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<img src='SymBitmaps/example_symm2.bmp' width = '500px', height = '350px'><br>" +
-      "<p style='font-size:25px'>Here, the picture is <b>NOT</b> symmetrical.</p>" +
-      "<p style='font-size:25px'>If you folded this picture across the red line, the boxes would <b>NOT</b> line up.</p>",
+      "<img src='SymBitmaps/example_symm3.bmp' width='500px' height='350px'><br>" +
+      "<p style='font-size:25px'>Here’s another symmetrical totem -- fold it vertically and the halves match.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -221,9 +223,9 @@ function startSspanGame(participantID, onGameEnd) {
   var sspan_instruct_6 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<img src='SymBitmaps/example_symm3.bmp' width = '500px', height = '350px'><br>" +
-      "<p style='font-size:25px'>This is another example of a picture that <b>IS</b> symmetrical.</p>" +
-      "<p style='font-size:25px'>If you folded it vertically, the two sides would line up.</p>",
+      "<img src='SymBitmaps/example_symm4.bmp' width='500px' height='350px'><br>" +
+      "<p style='font-size:25px'>This totem is <b>NOT</b> symmetrical -- its sides don’t mirror each other.</p>" +
+      "<p style='font-size:25px'>If you're unsure about how to judge symmetry, now’s the time to ask questions.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -232,24 +234,24 @@ function startSspanGame(participantID, onGameEnd) {
   var sspan_instruct_7 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<img src='SymBitmaps/example_symm4.bmp' width = '500px', height = '350px'><br>" +
-      "<p style='font-size:25px'>Here is another example of a picture that is <b>NOT</b> symmetrical.</p>" +
-      "<p style='font-size:25px'>Notice that if folded, the two sides would not line up.</p>" +
-      "<p style='font-size:25px'>If you have any questions about how symmetry works, please ask them now.</p>",
-    choices: ['CONTINUE'],
+      "<p style='font-size:25px'>Symmetry judgments must be fast and accurate -- no time for hesitation in space!</p>" +
+      "<p style='font-size:25px'>Begin symmetry practice when ready.</p>",
+    choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
+  // Combined Instructions
   var sspan_instruct_8 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>Once you have decided if the picture is symmetrical, click the mouse.</p>" +
-      "<p style='font-size:25px'>You will then see the following prompt displayed on the next screen:</p>" +
-      "<p style='font-size:30px'>Is this symmetrical?</p>" +
-      "<p style='font-size:25px'>along with a box marked TRUE and a box marked FALSE.</p>" +
-      "<p style='font-size:25px'>If the picture you saw was symmetrical, click on the TRUE box. If the picture was not symmetrical, click on the FALSE box.</p>" +
-      "<p style='font-size:25px'>After you click on one of the boxes, the computer will tell you if you made the right choice.</p>",
+      '<h1><b>🧪 Dual Task Simulation</b></h1>' +
+      "<p style='font-size:25px'>Now you'll solve both parts together. First, judge an alien totem for symmetry.</p>" +
+      "<p style='font-size:25px'>Then, a colored square will light up—memorize its location.</p>" +
+      "<p style='font-size:25px'>This will repeat: symmetry → square → symmetry → square...</p>" +
+      "<p style='font-size:25px'>At the end of the round, recall all square locations in the correct order.</p>" +
+      "<p style='font-size:25px'>⚠️ Don’t take too long on symmetry decisions. The totem will disappear if you go over your time limit!</p>" +
+      "<p style='font-size:25px'>Quick thinking and precise memory -- that’s your goal!</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -258,45 +260,10 @@ function startSspanGame(participantID, onGameEnd) {
   var sspan_instruct_9 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>It is VERY important that you correctly determine whether the pictures are symmetrical.</br>It is also important that you try and judge the pictures as quickly as you can.</p>" +
-      "<p style='font-size:25px'>When you are ready, click on the button below to practice.</p>",
-    choices: ['BEGIN PRACTICE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  //Combined Instructions
-  var sspan_instruct_10 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>Now you will practice doing both parts of the task at the same time.</p>" +
-      "<p style='font-size:25px'>In the next practice set, you will be given one of the symmetry problems. Once you solve the problem, a square will appear on the screen. Try and remember the position of the square.</p>" +
-      "<p style='font-size:25px'>In the previous section where you only did symmetry problems, the computer computed your average time to solve the problems. If you take significantly longer than your average time, the computer will automatically move you onto the square part, thus skipping the True or False part and will count that problem as an error.</p>" +
-      "<p style='font-size:25px'>Therefore it is VERY important to solve the problems as quickly and accurately as possible.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var sspan_instruct_11 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>After the square goes away, another picture will appear, and then another square.</p>" +
-      "<p style='font-size:25px'>At the end of each set of pictures and squares, you will recall the squares to the best of your ability.</br>Remember, try your best to get the squares in the correct order.</p>" +
-      "<p style='font-size:25px'>It is important to work QUICKLY and ACCURATELY on the pictures.</p>" +
-      "<p style='font-size:25px'> After the square recall screen, you will be given feedback about your performance regarding the number of squares you correctly recalled.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var sspan_instruct_12 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>On the feedback screen, you will also see a number in the top right corner.</br>This indicates your percent correct for the symmetry problems for the entire task.</p>" +
-      "<p style='font-size:25px'>It is VERY important for you to keep this at least at 85%.</br>For our purposes, we can only use your data if you were at least 85% accurate on the symmetry problems.</p>" +
-      "<p style='font-size:25px'>Therefore, please try your best to perform at least at 85% on the symmetry problems WHILE doing your best to recall as many squares as possible.</p>" +
-      "<p style='font-size:25px'>Click the button to practice.</p>",
+      '<h1><b>📊 Accuracy Checkpoint</b></h1>' +
+      "<p style='font-size:25px'>You’ll see a symmetry accuracy percentage in the top right of the screen.</p>" +
+      "<p style='font-size:25px'>Keep it at or above <b>85%</b> to stay in mission-ready condition.</p>" +
+      "<p style='font-size:25px'>Do your best on both symmetry checks and square recalls!</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -306,16 +273,16 @@ function startSspanGame(participantID, onGameEnd) {
   }
 
   //Wrap-up / final screen before main task
-  var sspan_instruct_13 = {
+  var sspan_instruct_10 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>That is the end of practice.</p>" +
-      "<p style='font-size:25px'>The real trials will look just like the practice trials you just completed.</br>First, you will get a symmetry problem, then a square to remember.</p>" +
-      "<p style='font-size:25px'>When the recall screen appears, report the squares in the order presented. If you forget a square, remember to use the SKIP button to move to the next square.</p>" +
-      "<p style='font-size:25px'>Some of the sets will have more problems and squares than others.</br>It is important that you do your best on both the symmetry and the square parts of the experiment.</p>" +
-      "<p style='font-size:25px'>Also, remember to keep your symmetry accuracy at 85% or above.</p>" +
-      "<p style='font-size:25px'><b>Do NOT use any external aid (e.g., paper and pencil, word processor) to write down the order of the squares.</b></br>This task is meant to be challenging.</p>" +
-      "<p style='font-size:25px'>Click the button to begin.</p>",
+      '<h1><b>🎯 Main Mission Begins</b></h1>' +
+      "<p style='font-size:25px'>Practice is complete. Time for the full control panel challenge!</p>" +
+      "<p style='font-size:25px'>You’ll judge symmetry, then memorize square positions -- same as practice.</p>" +
+      "<p style='font-size:25px'>When recalling, use the SKIP button if needed. Order is important!</p>" +
+      "<p style='font-size:25px'>Some sets will be longer than others -- stay sharp and steady.</p>" +
+      "<p style='font-size:25px'>💡 Keep your symmetry accuracy at 85%+!</p>" +
+      "<p style='font-size:25px'><b>This is a secret mission -- just you and your mind.</b></p>",
     choices: ['BEGIN'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -1085,7 +1052,7 @@ is not remembered, they are instructued to leave this box blank.
   ///////////////////////
 
   var square_instructions = {
-    timeline: [sspan_instruct_1, sspan_instruct_2, sspan_instruct_3],
+    timeline: [sspan_instruct_1, sspan_instruct_2],
   }
 
   var practice_twosquare_trial = {
@@ -1124,12 +1091,11 @@ is not remembered, they are instructued to leave this box blank.
 
   var picture_instructions = {
     timeline: [
+      sspan_instruct_3,
       sspan_instruct_4,
       sspan_instruct_5,
       sspan_instruct_6,
       sspan_instruct_7,
-      sspan_instruct_8,
-      sspan_instruct_9,
     ],
   }
 
@@ -1197,7 +1163,7 @@ is not remembered, they are instructued to leave this box blank.
   ////////////////////////////////
 
   var squarepicture_instructions = {
-    timeline: [sspan_instruct_10, sspan_instruct_11, sspan_instruct_12],
+    timeline: [sspan_instruct_8, sspan_instruct_9],
   }
 
   var squarepicture_practice = {
@@ -1229,7 +1195,7 @@ is not remembered, they are instructued to leave this box blank.
       squarepicture_instructions,
       squarepractice_run,
       squarepractice_run,
-      sspan_instruct_13,
+      sspan_instruct_10,
     ],
   }
 
@@ -1382,7 +1348,8 @@ is not remembered, they are instructued to leave this box blank.
   var sspan_done = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px;'>Thank you for your responses.</br></br>Click on CONTINUE to see your scores.</p>",
+      '<h1><b>🧠 Mission TotemTrace Complete!</b></h1>' +
+      "<p style='font-size:25px'>Well done, cadet. Let’s review your performance.</p>",
     choices: ['CONTINUE'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function (data) {
@@ -1403,20 +1370,19 @@ is not remembered, they are instructued to leave this box blank.
     type: jsPsychHtmlButtonResponse,
     stimulus: function () {
       return (
-        "<p style='font-size:25px;'>There are two scores typically associated with this task.<br>" +
-        'The first is your TOTAL score. This reflects the number of squares you correctly identified.<br>' +
-        'The second is your ABSOLUTE SCORE. This reflects the number of squares you correctly identified <b>only on trials in which you correctly identified all of the squares.</b></p>' +
-        "<p style='font-size:25px;'>For example, if you correctly recalled 3 of 4 squares on a trial, your TOTAL score would increase by 3 but your ABSOLUTE score would increase by 0, as you did not correctly identify all of the squares.</br>" +
-        'If you correctly recalled 4 of 4 squares on a trial, both your TOTAL and ABSOLUTE score would increase by 4.</p>' +
-        "<p style='font-size:25px;'></br></br>Your <b>TOTAL</b> score was " +
+        '<h1><b>📈 Mission Summary</b></h1>' +
+        "<p style='font-size:25px'><b>TOTAL Score:</b> Total number of square positions remembered.</p>" +
+        "<p style='font-size:25px'><b>ABSOLUTE Score:</b> Number of squares remembered <b>only</b> on fully correct trials.</p>" +
+        "<p style='font-size:25px'><br>Your <b>TOTAL</b> score: " +
         SSPAN_TOTAL +
-        ".</p><p style='font-size:25px;'>Your <b>ABSOLUTE</b> score was " +
+        '</p>' +
+        "<p style='font-size:25px'>Your <b>ABSOLUTE</b> score: " +
         SSPAN_ABS +
-        '.</p>' +
-        "<p style='font-size:25px;'>Please report your TOTAL score to the administrator.</p>"
+        '</p>' +
+        "<p style='font-size:25px'>Please report your <b>TOTAL</b> score to the mission commander.</p>"
       )
     },
-    choices: ['CONTINUE'],
+    choices: ['OK'],
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
@@ -1424,8 +1390,9 @@ is not remembered, they are instructued to leave this box blank.
   var nextGame = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      '<p style="font-size: 25px;">Click continue to move on to the next task.</p>',
-    choices: ['Continue'],
+      '<p style="font-size:25px">🚀 Preparing for your next challenge...</p>' +
+      '<p style="font-size:25px">Click NEXT when you’re ready to move on to your next task!</p>',
+    choices: ['NEXT'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function () {
       document.getElementById('experiment-container').innerHTML = ''
@@ -1437,15 +1404,13 @@ is not remembered, they are instructued to leave this box blank.
   var sspan_final = {
     timeline: [
       preload,
-      // get_participant_id, // get_location,
-      welcome,
       square_practice_final,
       picture_practice_final,
-      //   squarepicture_practice_final,
-      //   final_combined_runs,
-      //   final_combined_runs,
-      //   sspan_done,
-      //   sspan_summary,
+      squarepicture_practice_final,
+      final_combined_runs,
+      final_combined_runs,
+      sspan_done,
+      sspan_summary,
       nextGame,
     ],
   }
