@@ -251,7 +251,9 @@ function startLspanGame(participantID, onGameEnd) {
       "<p style='font-size:25px'>First, you'll hear a piece of alien intel. Decide quickly if it’s true or false.</p>" +
       "<p style='font-size:25px'>Then, a signal letter will come through. Remember it -- order matters.</p>" +
       "<p style='font-size:25px'>You’ll go back and forth like this: sentence, letter, sentence, letter...</p>" +
-      "<p style='font-size:25px'>At the end of each sequence, you’ll recall the letters in the exact order you received them.</p><br>",
+      "<p style='font-size:25px'>At the end of each sequence, you’ll recall the letters in the exact order you received them.</p><br>" +
+      "<p style='font-size:25px'>⚠️ <b>Heads up</b>: We’ve calculated your average response time. If you take too long to decide on a sentence, we’ll skip ahead and count it as a mistake.</p>" +
+      "<p style='font-size:25px'>So stay sharp -- respond quickly and accurately!</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -260,9 +262,8 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_instruct_6 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>⚠️ <b>Heads up</b>: We’ve calculated your average response time. If you take too long to decide on a sentence, we’ll skip ahead and count it as a mistake.</p>" +
-      "<p style='font-size:25px'>So stay sharp -- respond quickly and accurately!</p><br>" +
-      "<p style='font-size:25px'>After each set, you’ll see how well you did recalling letters and your overall sentence accuracy.</p>" +
+      '<h1><b>📊 Accuracy Checkpoint</b></h1>' +
+      "<p style='font-size:25px'>After each set, you’ll see how well you did.</p>" +
       "<p style='font-size:25px'><b>Your mission score must stay above 85% accuracy on the sentences.</b></p>" +
       "<p style='font-size:25px'>This is critical for mission success. Give it your all, cadet!</p>",
     choices: ['BEGIN PRACTICE'],
@@ -1289,7 +1290,6 @@ function startLspanGame(participantID, onGameEnd) {
     stimulus: function () {
       return (
         "<p style='font-size:25px'><b>📊 Performance Summary</b></p>" +
-        "<p style='font-size:25px'>There are two key metrics from this simulation:</p>" +
         "<p style='font-size:25px'><b>TOTAL Score:</b> Letters correctly recalled across all rounds.</p>" +
         "<p style='font-size:25px'><b>ABSOLUTE Score:</b> Letters correctly recalled <b>only</b> on rounds where you got the entire set right.</p>" +
         "<p style='font-size:25px'><br>Your <b>TOTAL</b> score: " +
@@ -1297,7 +1297,8 @@ function startLspanGame(participantID, onGameEnd) {
         '</p>' +
         "<p style='font-size:25px'>Your <b>ABSOLUTE</b> score: " +
         LSPAN_ABS +
-        '</p>'
+        '</p>' +
+        "<p style='font-size:25px'>Report your <b>TOTAL</b> score to the mission commander.</p>"
       )
     },
     choices: ['OK'],
@@ -1324,11 +1325,11 @@ function startLspanGame(participantID, onGameEnd) {
     timeline: [
       preload,
       letter_practice_final,
-      sentence_practice_final,
-      lettersentence_practice_final,
-      final_combined_runs,
-      lspan_done,
-      lspan_summary,
+      // sentence_practice_final,
+      // lettersentence_practice_final,
+      // final_combined_runs,
+      // lspan_done,
+      // lspan_summary,
       nextGame,
     ],
   }

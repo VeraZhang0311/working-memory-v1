@@ -65,9 +65,10 @@ function startOspanGame(participantID, onGameEnd) {
   var ospan_instruct_1 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'><b>Math and Memory Task</b></p><p style='font-size:25px'>In this task, you will try to memorize letters you see on the screen while you also solve simple math problems.</p>" +
-      "<p style='font-size:25px'>In the next few minutes, you will have some practice to get you familiar with how the task works.</p>" +
-      "<p style='font-size:25px'>We will begin by practicing the letter part of the task. </p>",
+      '<h1><b>⛽ Fuel Equation & Memory Task</b></h1>' +
+      "<p style='font-size:25px'>Cadet, to launch the ship, </p>" +
+      "<p style='font-size:25px'>you'll solve quick fuel equations while memorizing secret launch codes.</p>" +
+      "<p style='font-size:25px'>You’ll start with a warm-up round focused just on launch codes.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -86,32 +87,35 @@ function startOspanGame(participantID, onGameEnd) {
   var ospan_instruct_2 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>For this practice set, letters will appear on the screen one at a time. Try to remember each letter in the order presented.</p>" +
-      "<p style='font-size:25px'>After 2 letters have been shown, you will see a response screen.</p>" +
-      "<p style='font-size:25px'>Your job is to report the letters you saw <b>in order</b>. If you do not remember a particular letter, you will have the option to leave it blank.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var ospan_instruct_3 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>Remember, it is very important to get the letters in the same order as you see them.</p>" +
-      "<p style='font-size:25px'>When you're ready, you may begin the letter practice.</p>",
+      "<p style='font-size:25px'>Letters will flash on the screen one at a time.</p>" +
+      "<p style='font-size:25px'>Remember them in the exact order you see them.</p>" +
+      "<p style='font-size:25px'>After two letters, you’ll be asked to recall them in order. You can leave blanks if needed.</p>" +
+      "<p style='font-size:25px'>Accuracy and order matter for launch codes.</p>" +
+      "<p style='font-size:25px'>Ready to train your memory?</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
+  // var ospan_instruct_3 = {
+  //   type: jsPsychHtmlButtonResponse,
+  //   stimulus:
+  //     "<p style='font-size:25px'>Remember, it is very important to get the letters in the same order as you see them.</p>" +
+  //     "<p style='font-size:25px'>When you're ready, you may begin the letter practice.</p>",
+  //   choices: ['BEGIN PRACTICE'],
+  //   post_trial_gap: 250,
+  //   button_html: '<button class="buttonStyle">%choice%</button>',
+  // }
+
   //Equation Instructions
   var ospan_instruct_4 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>Now you will practice doing the problem solving part of the task.</br>" +
-      "<p style='font-size:25px'>An equation will appear on the screen, like this:</p><p style='font-size: 45px;'><b>(4 &#215; 2) &#8722; 1 = ?</b></p>" +
-      "<p style='font-size:25px'>As soon as you see the math problem, you should compute the correct answer.</br>" +
-      "<p style='font-size:25px'>When you have solved the math problem, you will click on the screen using the mouse.</p>",
+      '<h1><b>🧮 Fuel Calculation Practice</b></h1>' +
+      "<p style='font-size:25px'>Now let’s calibrate your reactor by solving quick fuel equations.</p>" +
+      "<p style='font-size:25px'>You’ll see a math problem like:</p>" +
+      "<p style='font-size: 45px;'><b>(4 × 2) − 1 = ?</b></p>" +
+      "<p style='font-size:25px'>Solve it in your head, then click anywhere to continue.</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -120,60 +124,63 @@ function startOspanGame(participantID, onGameEnd) {
   var ospan_instruct_5 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>You will then see a possible answer to the math problem displayed on the next screen, like this:</p>" +
+      "<p style='font-size:25px'>You’ll then see a number, like:</p>" +
       "<p style='font-size:45px;'><b>7</b></p>" +
-      "<p style='font-size:25px'>along with a box marked TRUE and a box marked FALSE.</p>" +
-      "<p style='font-size:25px'>If the number shown is the correct answer to the math problem from the previous screen, click on the TRUE box.</p>" +
-      "<p style='font-size:25px'>If the number shown is not the correct answer (e.g., <b>5</b>), click on the FALSE box.</p>" +
-      "<p style='font-size:25px'>After you click on one of the boxes, the computer will tell you if you made the right choice.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
-
-  var ospan_instruct_6 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>It is VERY important that you answer the math problems correctly.</p>" +
-      "<p style='font-size:25px'>It is also important that you try and solve the problems as quickly as you can.</p>" +
-      "<p style='font-size:25px'>When you are ready, click on the button below to try some practice problems.</p>",
+      "<p style='font-size:25px'>Click <b>TRUE</b> if it matches your answer, or <b>FALSE</b> if it doesn’t.</p>" +
+      "<p style='font-size:25px'>You’ll get feedback after each one -- just like a reactor check.</p>" +
+      "<p style='font-size:25px'>Make sure your fuel calculations are fast and accurate.</p>" +
+      "<p style='font-size:25px'>When you’re ready, begin your practice!</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
+  // var ospan_instruct_6 = {
+  //   type: jsPsychHtmlButtonResponse,
+  //   stimulus:
+  //     "<p style='font-size:25px'>It is VERY important that you answer the math problems correctly.</p>" +
+  //     "<p style='font-size:25px'>It is also important that you try and solve the problems as quickly as you can.</p>" +
+  //     "<p style='font-size:25px'>When you are ready, click on the button below to try some practice problems.</p>",
+  //   choices: ['BEGIN PRACTICE'],
+  //   post_trial_gap: 250,
+  //   button_html: '<button class="buttonStyle">%choice%</button>',
+  // }
+
   //Combined Instructions
   var ospan_instruct_7 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>Now you will practice doing both parts of the task at the same time.</p>" +
-      "<p style='font-size:25px'>In the next practice set, you will be given a math problem to solve. Once you make your decision about whether the number shown is the correct answer to the problem, a letter will appear on the screen. Try and remember the letter.</p>" +
-      "<p style='font-size:25px'>In the previous section where you only solved math problems, the computer computed your average time to solve problems. If you take significantly longer than your average time, the computer will automatically move you onto the next letter part, thus skipping the True or False part and will count that problem as a math error.</p>" +
-      "<p style='font-size:25px'>Therefore it is VERY important to solve the problems as quickly and accurately as possible.</p>",
+      '<h1><b>🚀 Dual Task Simulation</b></h1>' +
+      "<p style='font-size:25px'>Now you’ll do both: solve a fuel equation, then memorize a launch code letter.</p>" +
+      "<p style='font-size:25px'>This will repeat -- equation, letter, equation, letter...</p>" +
+      "<p style='font-size:25px'>Once the sequence ends, recall the letters in order.</p>" +
+      "<p style='font-size:25px'>⚠️ If you take too long on a fuel equation, the system will skip ahead and count it as a mistake.</p>" +
+      "<p style='font-size:25px'>So stay focused, solve fast, and memorize carefully!</p>",
     choices: ['CONTINUE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
   }
 
-  var ospan_instruct_8 = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px'>After the letter goes away, another math problem will appear, and then another letter.</p>" +
-      "<p style='font-size:25px'>At the end of each set of letters and math problems, you will recall the letters to the best of your ability.</br>Remember, try your best to get the letters in the correct order.</p>" +
-      "<p style='font-size:25px'>It is important to work QUICKLY and ACCURATELY on the problems.</br>Make sure you've correctly solved the math problem before clicking the mouse to advance to the next screen.</p>" +
-      "<p style='font-size:25px'> After the letter recall screen, you will be given feedback about your performance regarding the number of letters you correctly recalled.</p>",
-    choices: ['CONTINUE'],
-    post_trial_gap: 250,
-    button_html: '<button class="buttonStyle">%choice%</button>',
-  }
+  // var ospan_instruct_8 = {
+  //   type: jsPsychHtmlButtonResponse,
+  //   stimulus:
+  //     "<p style='font-size:25px'>After the letter goes away, another math problem will appear, and then another letter.</p>" +
+  //     "<p style='font-size:25px'>At the end of each set of letters and math problems, you will recall the letters to the best of your ability.</br>Remember, try your best to get the letters in the correct order.</p>" +
+  //     "<p style='font-size:25px'>It is important to work QUICKLY and ACCURATELY on the problems.</br>Make sure you've correctly solved the math problem before clicking the mouse to advance to the next screen.</p>" +
+  //     "<p style='font-size:25px'> After the letter recall screen, you will be given feedback about your performance regarding the number of letters you correctly recalled.</p>",
+  //   choices: ['CONTINUE'],
+  //   post_trial_gap: 250,
+  //   button_html: '<button class="buttonStyle">%choice%</button>',
+  // }
 
   var ospan_instruct_9 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>On the feedback screen, you will also see a number in the top right corner.</br>This indicates your percent correct for the math problems for the entire task.</p>" +
-      "<p style='font-size:25px'>It is VERY important for you to keep this at least at 85%.</br>For our purposes, we can only use data where the participant was at least 85% accurate on the math.</p>" +
-      "<p style='font-size:25px'>Therefore, please try your best to perform at least at 85% on the math problems WHILE doing your best to recall as many letters as possible.</p>" +
-      "<p style='font-size:25px'>Click the button to try some practice problems.</p>",
+      '<h1><b>📊 Accuracy Checkpoint</b></h1>' +
+      "<p style='font-size:25px'>You’ll also see a math accuracy score at the top right.</p>" +
+      "<p style='font-size:25px'>Keep it at or above <b>85%</b> to stay in mission-ready condition.</p>" +
+      "<p style='font-size:25px'>Both solving and memory matter.</p>" +
+      "<p style='font-size:25px'>Give it your best shot!</p>",
     choices: ['BEGIN PRACTICE'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -186,13 +193,14 @@ function startOspanGame(participantID, onGameEnd) {
   var ospan_instruct_10 = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px'>That is the end of practice.</p>" +
-      "<p style='font-size:25px'>The real trials will look just like the practice trials you just completed.</br>First, you will get a math problem to solve, then a letter to remember.</p>" +
-      "<p style='font-size:25px'>When the recall screen appears, report the letters in the order presented. If you forget a letter, remember to use the SKIP button to move to the next letter.</p>" +
-      "<p style='font-size:25px'>Some of the sets will have more problems and letters than others.</br>It is important that you do your best on both the math problems and the letter recall parts of the task.</p>" +
-      "<p style='font-size:25px'>Remember, for the math problems, you must work as QUICKLY and ACCURATELY as possible.</br>Remember to keep your math problem accuracy at 85% or above.</p>" +
-      "<p style='font-size:25px'><b>Do NOT use any external aid (e.g., paper and pencil, word processor) to write down the letters.</b></br>This task is meant to be challenging.</p>" +
-      "<p style='font-size:25px'>Click the button to begin.</p>",
+      '<h1><b>🎯 Main Mission Begins</b></h1>' +
+      "<p style='font-size:25px'>Practice complete. Now the real mission begins!</p>" +
+      "<p style='font-size:25px'>You’ll get a math problem, then a letter. Recall the letters in order at the end of each set.</p>" +
+      "<p style='font-size:25px'>Use the <b>SKIP</b> button if you forget a letter.</p>" +
+      "<p style='font-size:25px'>Some rounds will be longer than others -- stay sharp!</p>" +
+      "<p style='font-size:25px'>💡 Remember: Solve problems quickly and aim for 85%+ accuracy.</p>" +
+      "<p style='font-size:25px'><b>No outside help—your brain is the only onboard system allowed.</b></p>",
+
     choices: ['BEGIN'],
     post_trial_gap: 250,
     button_html: '<button class="buttonStyle">%choice%</button>',
@@ -851,20 +859,12 @@ function startOspanGame(participantID, onGameEnd) {
   //// DEFINE THE FINAL BLOCKS ////
   /////////////////////////////////
 
-  var welcome = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px;'><b>Math and Memory Task</b></p>" +
-      "<p style='font-size:25px;'>Click on START to read the instructions.</p>",
-    choices: ['START'],
-  }
-
   ///////////////////////
   //1. LETTER PRACTICE //
   ///////////////////////
 
   var letter_instructions = {
-    timeline: [ospan_instruct_1, ospan_instruct_2, ospan_instruct_3],
+    timeline: [ospan_instruct_1, ospan_instruct_2],
   }
 
   var practice_twoletter_trial = {
@@ -902,7 +902,7 @@ function startOspanGame(participantID, onGameEnd) {
   /////////////////////////
 
   var equation_instructions = {
-    timeline: [ospan_instruct_4, ospan_instruct_5, ospan_instruct_6],
+    timeline: [ospan_instruct_4, ospan_instruct_5],
   }
 
   var equation_practice = {
@@ -969,7 +969,7 @@ function startOspanGame(participantID, onGameEnd) {
   ////////////////////////////////
 
   var letterequation_instructions = {
-    timeline: [ospan_instruct_7, ospan_instruct_8, ospan_instruct_9],
+    timeline: [ospan_instruct_7, ospan_instruct_9],
   }
 
   var letterequation_practice = {
@@ -1154,7 +1154,8 @@ function startOspanGame(participantID, onGameEnd) {
   var ospan_done = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      "<p style='font-size:25px;'>Thank you for your responses.</br></br>Click on CONTINUE to see your scores.</p>",
+      '<h1><b>🧠 Fuel & Memory Simulation Complete!</b></h1>' +
+      "<p style='font-size:25px;'>Well done, cadet. Let’s review your performance.</p>",
     choices: ['CONTINUE'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function (data) {
@@ -1175,17 +1176,16 @@ function startOspanGame(participantID, onGameEnd) {
     type: jsPsychHtmlButtonResponse,
     stimulus: function () {
       return (
-        "<p style='font-size:25px;'>There are two scores typically associated with this task.<br>" +
-        'The first is your TOTAL score. This reflects the number of letters you correctly identified.<br>' +
-        'The second is your ABSOLUTE SCORE. This reflects the number of letters you correctly identified <b>only on trials in which you correctly identified all of the letters.</b></p>' +
-        "<p style='font-size:25px;'>For example, if you correctly recalled 3 of 4 letters on a trial, your TOTAL score would increase by 3 but your ABSOLUTE score would increase by 0, as you did not correctly identify all of the letters.</br>" +
-        'If you correctly recalled 4 of 4 letters on a trial, both your TOTAL and ABSOLUTE score would increase by 4.</p>' +
-        "<p style='font-size:25px;'></br></br>Your <b>TOTAL</b> score was " +
+        '<h1><b>📈 Mission Summary</b></h1>' +
+        "<p style='font-size:25px'><b>TOTAL Score:</b> All letters you remembered correctly.</p>" +
+        "<p style='font-size:25px'><b>ABSOLUTE Score:</b> Letters recalled only on fully correct sets.</p>" +
+        "<p style='font-size:25px'><br>Your <b>TOTAL</b> score: " +
         OSPAN_TOTAL +
-        ".</p><p 'font-size:25px;'>Your <b>ABSOLUTE</b> score was " +
+        '</p>' +
+        "<p style='font-size:25px'>Your <b>ABSOLUTE</b> score: " +
         OSPAN_ABS +
-        '.</p>' +
-        "<p style='font-size:25px;'>Please report your TOTAL score to the administrator.</p>"
+        '</p>' +
+        "<p style='font-size:25px'>Report your <b>TOTAL</b> score to the mission commander.</p>"
       )
     },
     choices: ['CONTINUE'],
@@ -1193,11 +1193,13 @@ function startOspanGame(participantID, onGameEnd) {
   }
 
   // final trial to bring user to the next game
+  // final trial to bring user to the next game
   var nextGame = {
     type: jsPsychHtmlButtonResponse,
     stimulus:
-      '<p style="font-size: 25px;">Click continue to move on to the next task.</p>',
-    choices: ['Continue'],
+      '<p style="font-size:25px">🚀 Preparing for your next challenge...</p>' +
+      '<p style="font-size:25px">Click NEXT when you’re ready to move on to your next task!</p>',
+    choices: ['NEXT'],
     button_html: '<button class="buttonStyle">%choice%</button>',
     on_finish: function () {
       document.getElementById('experiment-container').innerHTML = ''
@@ -1208,14 +1210,13 @@ function startOspanGame(participantID, onGameEnd) {
   //main ospan task
   var ospan_final = {
     timeline: [
-      welcome,
       letter_practice_final,
-      //   equation_practice_final,
-      //   letterequation_practice_final,
-      //   final_combined_runs,
-      //   final_combined_runs,
-      //   ospan_done,
-      //   ospan_summary,
+      // equation_practice_final,
+      // letterequation_practice_final,
+      // final_combined_runs,
+      // final_combined_runs,
+      // ospan_done,
+      // ospan_summary,
       nextGame,
     ],
   }
