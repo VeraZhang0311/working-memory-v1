@@ -81,6 +81,44 @@ function startRspanGame(participantID, onGameEnd) {
     },
   }
 
+  var rspan_welcome = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `<div class="mission-welcome">Mission LexiTrace</div>`,
+    choices: 'NO_KEYS',
+    trial_duration: 3000,
+    on_start: function () {
+      const link = document.createElement('link')
+      link.href =
+        'https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap'
+      link.rel = 'stylesheet'
+      document.head.appendChild(link)
+
+      const style = document.createElement('style')
+      style.innerHTML = `
+        .mission-welcome {
+          opacity: 0;
+          font-size: 64px;
+          color: black;
+          font-family: 'Orbitron', sans-serif;
+          text-align: center;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation: fadeInOut 3s forwards;
+          z-index: 9999;
+        }
+        @keyframes fadeInOut {
+          0% { opacity: 0; }
+          20% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `
+      document.head.appendChild(style)
+    },
+  }
+
   ////////////////
   //INSTRUCTIONS//
   ////////////////
@@ -1010,14 +1048,6 @@ is not remembered, they are instructued to leave this box blank.
   //// DEFINE THE FINAL BLOCKS ////
   /////////////////////////////////
 
-  var welcome = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus:
-      "<p style='font-size:25px;'><b>Reading and Memory Task</b></p>" +
-      "<p style='font-size:25px;'>Click on START to read the instructions.</p>",
-    choices: ['START'],
-  }
-
   ///////////////////////
   //1. LETTER PRACTICE //
   ///////////////////////
@@ -1367,6 +1397,7 @@ is not remembered, they are instructued to leave this box blank.
   //main rspan task
   var rspan_final = {
     timeline: [
+      rspan_welcome,
       letter_practice_final,
       // sentence_practice_final,
       // lettersentence_practice_final,

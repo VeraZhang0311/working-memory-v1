@@ -62,13 +62,26 @@ function askForParticipantID(onIDEntered) {
     `,
     choices: ['Launch Mission'],
     button_html: '<button class="buttonStyle">%choice%</button>',
+  }
+
+  const delay_and_exit = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '',
+    choices: 'NO_KEYS',
+    trial_duration: 1000,
     on_finish: function () {
       jsPsych.endExperiment()
       onIDEntered(selectedGameFunctions)
     },
   }
 
-  timeline.push(get_participant_id, enter_fullscreen, select_games, space_intro)
+  timeline.push(
+    get_participant_id,
+    enter_fullscreen,
+    select_games,
+    space_intro,
+    delay_and_exit
+  )
 
   jsPsych.run(timeline)
 }

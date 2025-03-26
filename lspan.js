@@ -183,6 +183,44 @@ function startLspanGame(participantID, onGameEnd) {
     ],
   }
 
+  var lspan_welcome = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `<div class="mission-welcome">Mission EchoCore</div>`,
+    choices: 'NO_KEYS',
+    trial_duration: 3000,
+    on_start: function () {
+      const link = document.createElement('link')
+      link.href =
+        'https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap'
+      link.rel = 'stylesheet'
+      document.head.appendChild(link)
+
+      const style = document.createElement('style')
+      style.innerHTML = `
+        .mission-welcome {
+          opacity: 0;
+          font-size: 64px;
+          color: black;
+          font-family: 'Orbitron', sans-serif;
+          text-align: center;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation: fadeInOut 3s forwards;
+          z-index: 9999;
+        }
+        @keyframes fadeInOut {
+          0% { opacity: 0; }
+          20% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `
+      document.head.appendChild(style)
+    },
+  }
+
   ////////////////
   //INSTRUCTIONS//
   ////////////////
@@ -1324,6 +1362,7 @@ function startLspanGame(participantID, onGameEnd) {
   var lspan_final = {
     timeline: [
       preload,
+      lspan_welcome,
       letter_practice_final,
       // sentence_practice_final,
       // lettersentence_practice_final,
