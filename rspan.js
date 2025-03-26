@@ -1368,16 +1368,20 @@ is not remembered, they are instructued to leave this box blank.
   var rspan_final = {
     timeline: [
       letter_practice_final,
-      sentence_practice_final,
-      lettersentence_practice_final,
-      final_combined_runs,
-      final_combined_runs,
-      rspan_done,
-      rspan_summary,
-      nextGame,
+      // sentence_practice_final,
+      // lettersentence_practice_final,
+      // final_combined_runs,
+      // final_combined_runs,
+      // rspan_done,
+      // rspan_summary,
     ],
   }
 
   timeline.push(rspan_final)
+
+  if (game_counts > 0) {
+    timeline.push(nextGame)
+  }
+
   jsPsych.run(timeline)
 }

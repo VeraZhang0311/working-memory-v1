@@ -1183,11 +1183,14 @@ function startOspanGame(participantID, onGameEnd) {
       // final_combined_runs,
       // ospan_done,
       // ospan_summary,
-      nextGame,
     ],
   }
 
   timeline.push(ospan_final)
+
+  if (game_counts > 0) {
+    timeline.push(nextGame)
+  }
 
   jsPsych.run(timeline)
 }

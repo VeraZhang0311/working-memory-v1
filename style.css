@@ -217,3 +217,9 @@ body {
   background-color: white;
   z-index: 1000;
 }
+
+.final-caret {
+  animation-fill-mode: forwards;
+  animation: none;
+  border-right: none;
+}

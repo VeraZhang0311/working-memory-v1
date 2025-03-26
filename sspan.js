@@ -1405,24 +1405,18 @@ is not remembered, they are instructued to leave this box blank.
     timeline: [
       preload,
       square_practice_final,
-      picture_practice_final,
-      squarepicture_practice_final,
-      final_combined_runs,
-      final_combined_runs,
-      sspan_done,
-      sspan_summary,
-      nextGame,
+      // picture_practice_final,
+      // squarepicture_practice_final,
+      // final_combined_runs,
+      // final_combined_runs,
+      // sspan_done,
+      // sspan_summary,
     ],
   }
 
-  //   var exit_fullscreen = {
-  //     type: jsPsychFullscreen,
-  //     fullscreen_mode: false,
-  //     delay_after: 0,
-  //     on_finish: function () {
-  //       jsPsych.endExperiment()
-  //     },
-  //   }
+  if (game_counts > 0) {
+    timeline.push(nextGame)
+  }
 
   timeline.push(sspan_final)
   jsPsych.run(timeline)

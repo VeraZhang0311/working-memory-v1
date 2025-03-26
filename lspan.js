@@ -1330,11 +1330,14 @@ function startLspanGame(participantID, onGameEnd) {
       // final_combined_runs,
       // lspan_done,
       // lspan_summary,
-      nextGame,
     ],
   }
 
   timeline.push(lspan_final)
+
+  if (game_counts > 0) {
+    timeline.push(nextGame)
+  }
 
   jsPsych.run(timeline)
 }
