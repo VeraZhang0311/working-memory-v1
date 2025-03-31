@@ -920,45 +920,35 @@ is not remembered, they are instructued to leave this box blank.
 
   //Adapted from the Experiment Factory Repository
   var response_grid =
-    '<div class = numbox>' +
+    '<div class="numbox">' +
     '<p>Please recall the letters you saw to the best of your ability. If you do not remember a particular letter, use the SKIP button.<br><b>(When you are ready to lock in your answer, press ENTER or RETURN)</b></p>' +
-    '<button id = button_1 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>F</div></div></button>' +
-    '<button id = button_2 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>H</div></div></button>' +
-    '<button id = button_3 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>J</div></div></button><br>' +
-    '<button id = button_4 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>K</div></div></button>' +
-    '<button id = button_5 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>L</div></div></button>' +
-    '<button id = button_6 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>N</div></div></button><br>' +
-    '<button id = button_7 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>P</div></div></button>' +
-    '<button id = button_8 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>Q</div></div></button>' +
-    '<button id = button_9 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>R</div></div></button><br>' +
-    '<button id = button_10 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>S</div></div></button>' +
-    '<button id = button_11 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>T</div></div></button>' +
-    '<button id = button_12 class = "square num-button" onclick = "recordClick_rspan(this)"><div class = content><div class = numbers>Y</div></div></button>' +
-    '<br><br>' +
-    '<button class = clear_button id = "ClearButton" onclick = "clearResponse_rspan()">BACKSPACE</button>' +
-    '<button class = blank_button id = "BlankButton" onclick = "blankResponse_rspan()">SKIP</button>' +
-    '<p><u><b>Current Answer:</b></u></p><br><div id=echoed_txt style="font-size: 60px; color:blue; font-family:Arial; font-weight:bold;"><b></b></div></div>'
-
-  //Enable typing for letter-recall
-  // function keyboardInputHandler(e) {
-  //   const key = e.key.toUpperCase()
-  //   if (letters.includes(key)) {
-  //     response.push(key)
-  //     document.getElementById('echoed_txt').innerHTML = response.join(' ')
-  //   } else if (e.key === 'Backspace') {
-  //     response.pop()
-  //     document.getElementById('echoed_txt').innerHTML = response.join(' ')
-  //   } else if (e.key === ' ') {
-  //     response.push('_') // Treat spacebar as "skip"
-  //     document.getElementById('echoed_txt').innerHTML = response.join(' ')
-  //   }
-  // }
+    // Grid layout container
+    '<div class="button-grid">' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">F</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">H</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">J</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">K</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">L</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">N</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">P</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">Q</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">R</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">S</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">T</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">Y</button>' +
+    '</div>' +
+    '<br>' +
+    '<button class="clear_button" id="ClearButton" onclick="clearResponse_rspan()">BACKSPACE</button>' +
+    '<button class="blank_button" id="BlankButton" onclick="blankResponse_rspan()">SKIP</button>' +
+    '<p><u><b>Current Answer:</b></u></p><br>' +
+    '<div id="echoed_txt" style="font-size: 60px; color:blue; font-family:Arial; font-weight:bold;"><b></b></div>' +
+    '</div>'
 
   function keyboardInputHandler(e) {
     const key = e.key.toUpperCase()
 
-    // Only proceed if it's a valid letter and not already used
-    if (letters.includes(key) && response.length < correctSEQ.length) {
+    // Handle letter keys
+    if (letters.includes(key)) {
       response.push(key)
       document.getElementById('echoed_txt').innerHTML = response.join(' ')
 
@@ -969,11 +959,13 @@ is not remembered, they are instructued to leave this box blank.
       if (button) {
         button.classList.add('highlighted', 'disabled-button')
       }
+
+      // Handle backspace
     } else if (e.key === 'Backspace') {
       const removed = response.pop()
       document.getElementById('echoed_txt').innerHTML = response.join(' ')
 
-      // Re-enable the button if it's a letter
+      // Re-enable button if the removed key was a valid letter
       if (letters.includes(removed)) {
         const button = [...document.querySelectorAll('.num-button')].find(
           (btn) => btn.innerText === removed
@@ -982,11 +974,11 @@ is not remembered, they are instructued to leave this box blank.
           button.classList.remove('highlighted', 'disabled-button')
         }
       }
+
+      // Handle spacebar (skip input)
     } else if (e.key === ' ') {
-      if (response.length < correctSEQ.length) {
-        response.push('_')
-        document.getElementById('echoed_txt').innerHTML = response.join(' ')
-      }
+      response.push('_')
+      document.getElementById('echoed_txt').innerHTML = response.join(' ')
     }
   }
 

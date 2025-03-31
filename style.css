@@ -1,3 +1,173 @@
+/*************************************************
+ * GENERAL LAYOUT AND PAGE STRUCTURE
+ *************************************************/
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#experiment-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jspsych-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*************************************************
+  * LETTER BUTTON GRID (3x4)
+  *************************************************/
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px); /* 3 columns */
+  grid-gap: 20px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.num-button {
+  position: relative;
+  padding: 20px 28px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px;
+  background-color: #1f3b75;
+  color: white;
+  border: 2px solid #1f3b75;
+  border-radius: 12px; /* more round for panel feel */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* soft dark shadow */
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.2); /* futuristic glow text */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.num-button:active {
+  transform: scale(0.97); /* subtle press down */
+}
+
+/* Hover effect: lighter space blue */
+.num-button:hover,
+.num-button:focus {
+  background-color: #355ca3;
+  border-color: #355ca3;
+}
+
+/* Highlighted (selected) button state */
+.highlighted {
+  background-color: #50a4ff !important;
+  border-color: #50a4ff !important;
+  color: white !important;
+}
+
+/* Disabled button appearance */
+.disabled-button {
+  background-color: #999999 !important;
+  border-color: #777 !important;
+  color: #ddd !important;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Alternative button style (for sspan specifically) */
+.num-button_sspan {
+  background-color: white;
+  border: 1px solid black;
+  height: 80px;
+  width: 80px;
+  color: white;
+  border-spacing: 0px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/*************************************************
+  * BACKSPACE / SKIP BUTTONS
+  *************************************************/
+.clear_button,
+.blank_button {
+  background-color: #2a417a; /* Deep space blue */
+  color: white;
+  border: 2px solid #2a417a;
+  border-radius: 12px; /* Rounded corners */
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Console glow */
+}
+
+/* Hover effect */
+.clear_button:hover,
+.blank_button:hover {
+  background-color: #3f5ca9; /* Lighter space blue */
+  border-color: #3f5ca9;
+  transform: scale(1.03);
+}
+
+/*************************************************
+  * INSTRUCTION / FEEDBACK STYLING
+  *************************************************/
+
+.buttonStyle {
+  background-color: #555555;
+  border: 2px solid black;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.buttonStyle:hover,
+.buttonStyle:focus {
+  background-color: #808080;
+  color: white;
+}
+
+.fullscreenStyle {
+  display: block;
+  height: 90vh;
+  width: 90vw;
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  background-repeat: no-repeat;
+  border: 2px solid black;
+  overflow: hidden;
+  outline: none;
+}
+
+/*************************************************
+  * SURVEY TEXT STYLING
+  *************************************************/
+
+.jspsych-survey-text-rspan {
+  margin: 0em 0em;
+}
+
 .jspsych-survey-text-rspan-question {
   border-style: solid;
   background-color: #e8e8e8;
@@ -8,6 +178,7 @@
   top: 50%;
   left: 45%;
 }
+
 .jspsych-survey-text-rspan-question textarea {
   font-size: 30px;
   width: 35px;
@@ -18,9 +189,10 @@
   resize: none;
   overflow: hidden;
 }
-.jspsych-survey-text-rspan {
-  margin: 0em 0em;
-}
+
+/*************************************************
+  * FIXED TEXT / FEEDBACK BOXES
+  *************************************************/
 
 .solid {
   border-style: solid;
@@ -56,200 +228,10 @@
   margin-top: 10px;
 }
 
-.buttonStyle {
-  background-color: #555555;
-  border: 2px solid black;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  cursor: pointer;
-}
+/*************************************************
+  * FINAL ANIMATION
+  *************************************************/
 
-.buttonStyle:hover,
-.buttonStyle:focus {
-  background-color: #808080;
-  color: white;
-}
-
-.fullscreenStyle {
-  display: block;
-  height: 90vh;
-  width: 90vw;
-  cursor: pointer;
-  text-align: center;
-  background-color: white;
-  background-repeat: no-repeat;
-  border: 2px solid black;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-}
-
-.num-button {
-  padding: 20px 28px;
-  font-size: 28px;
-  font-weight: bold;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-
-  /* 太空蓝默认颜色 */
-  background-color: #1f3b75; /* ⬅ 默认按钮色：深太空蓝 */
-  color: white;
-  border: 2px solid #1f3b75; /* 同步按钮边框颜色 */
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.num-button_sspan {
-  background-color: white;
-  border: 1px solid black;
-  height: 80px;
-  width: 80px;
-  color: white;
-  border-spacing: 0px;
-  /* padding: 10px 10px; */
-  font-size: 28px;
-  font-weight: bold;
-}
-
-/* === BUTTON HOVER === */
-.num-button:hover,
-.num-button:focus {
-  background-color: #355ca3; /* ⬅ Hover 时的亮太空蓝 */
-  border-color: #355ca3;
-}
-
-/* === BUTTON PRESSED / HIGHLIGHTED === */
-.highlighted {
-  background-color: #50a4ff !important; /* ⬅ 按下后的高亮太空蓝 */
-  border-color: #50a4ff !important;
-  color: white !important;
-}
-
-/* === BUTTON DISABLED STATE === */
-.disabled-button {
-  background-color: #999999 !important; /* ⬅ 灰色，表示已禁用 */
-  border-color: #777 !important;
-  color: #ddd !important;
-  pointer-events: none;
-  opacity: 0.8;
-}
-
-.clear_button {
-  padding: 14px 40px;
-  font-size: 18px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.blank_button {
-  padding: 14px 40px;
-  font-size: 18px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#experiment-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.jspsych-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-
-/* Ensure the whole page is a flex container */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Center the main menu */
-#main-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  text-align: center;
-}
-
-/* Header text */
-.menu-header {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Game selection buttons */
-.menu-button {
-  font-size: 22px;
-  padding: 15px 30px;
-  margin: 10px 0;
-  border-radius: 12px;
-  border: 2px solid black;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-  width: 300px; /* Adjust for uniform size */
-  text-align: center;
-  transition: background-color 0.3s ease-in-out;
-  display: block;
-}
-
-/* Button hover effect */
-.menu-button:hover {
-  background-color: #45a049;
-}
-
-/* Disable button effect */
-.menu-button:disabled,
-.menu-button[disabled] {
-  background-color: #d3d3d3 !important; /* Light grey */
-  color: #a0a0a0;
-  cursor: default;
-  border-color: #777;
-}
-
-/* Remove hover effect for disabled buttons */
-.menu-button:disabled:hover {
-  background-color: #d3d3d3;
-}
-
-#experiment-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  z-index: 1000;
-}
-
-/* animation for the end of the whole game */
 .final-caret {
   animation-fill-mode: forwards;
   animation: none;

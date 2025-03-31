@@ -823,8 +823,12 @@ function startLspanGame(participantID, onGameEnd) {
 
   //function to push button responses to array
   window.recordClick_lspan = function (elm) {
-    response.push($(elm).text()) //push the letter to the array
+    const letter = $(elm).text()
+    response.push(letter)
     document.getElementById('echoed_txt').innerHTML = response.join(' ')
+
+    // Disable and highlight button
+    elm.classList.add('highlighted', 'disabled-button')
   }
 
   //function to clear the response array
@@ -841,30 +845,79 @@ function startLspanGame(participantID, onGameEnd) {
 
   //Adapted from the Experiment Factory Repository
   var response_grid =
-    '<div class = numbox>' +
+    '<div class="numbox">' +
     '<p>Please recall the letters you saw to the best of your ability. If you do not remember a particular letter, use the SKIP button.<br><b>(When you are ready to lock in your answer, press ENTER or RETURN)</b></p>' +
-    '<button id = button_1 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>F</div></div></button>' +
-    '<button id = button_2 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>H</div></div></button>' +
-    '<button id = button_3 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>J</div></div></button><br>' +
-    '<button id = button_4 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>K</div></div></button>' +
-    '<button id = button_5 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>L</div></div></button>' +
-    '<button id = button_6 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>N</div></div></button><br>' +
-    '<button id = button_7 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>P</div></div></button>' +
-    '<button id = button_8 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>Q</div></div></button>' +
-    '<button id = button_9 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>R</div></div></button><br>' +
-    '<button id = button_10 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>S</div></div></button>' +
-    '<button id = button_11 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>T</div></div></button>' +
-    '<button id = button_12 class = "square num-button" onclick = "recordClick_lspan(this)"><div class = content><div class = numbers>Y</div></div></button>' +
-    '<br><br>' +
-    '<button class = clear_button id = "ClearButton" onclick = "clearResponse_lspan()">BACKSPACE</button>' +
-    '<button class = blank_button id = "BlankButton" onclick = "blankResponse_lspan()">SKIP</button>' +
-    '<p><u><b>Current Answer:</b></u><br><br></p><div id=echoed_txt style="font-size: 60px; color:blue; font-family:Arial; font-weight:bold;"><b></b></div></div>'
+    // Grid layout container
+    '<div class="button-grid">' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">F</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">H</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">J</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">K</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">L</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">N</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">P</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">Q</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">R</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">S</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">T</button>' +
+    '<button class="square num-button" onclick="recordClick_rspan(this)">Y</button>' +
+    '</div>' +
+    '<br>' +
+    '<button class="clear_button" id="ClearButton" onclick="clearResponse_rspan()">BACKSPACE</button>' +
+    '<button class="blank_button" id="BlankButton" onclick="blankResponse_rspan()">SKIP</button>' +
+    '<p><u><b>Current Answer:</b></u></p><br>' +
+    '<div id="echoed_txt" style="font-size: 60px; color:blue; font-family:Arial; font-weight:bold;"><b></b></div>' +
+    '</div>'
+
+  function keyboardInputHandler(e) {
+    const key = e.key.toUpperCase()
+
+    // Handle letter keys
+    if (letters.includes(key)) {
+      response.push(key)
+      document.getElementById('echoed_txt').innerHTML = response.join(' ')
+
+      // Highlight and disable the corresponding button
+      const button = [...document.querySelectorAll('.num-button')].find(
+        (btn) => btn.innerText === key
+      )
+      if (button) {
+        button.classList.add('highlighted', 'disabled-button')
+      }
+
+      // Handle backspace
+    } else if (e.key === 'Backspace') {
+      const removed = response.pop()
+      document.getElementById('echoed_txt').innerHTML = response.join(' ')
+
+      // Re-enable button if the removed key was a valid letter
+      if (letters.includes(removed)) {
+        const button = [...document.querySelectorAll('.num-button')].find(
+          (btn) => btn.innerText === removed
+        )
+        if (button) {
+          button.classList.remove('highlighted', 'disabled-button')
+        }
+      }
+
+      // Handle spacebar (skip input)
+    } else if (e.key === ' ') {
+      response.push('_')
+      document.getElementById('echoed_txt').innerHTML = response.join(' ')
+    }
+  }
 
   //UPDATED RECALL SCREEN
   var lspan_recall = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: response_grid,
     choices: ['Enter'],
+    on_load: function () {
+      document.addEventListener('keydown', keyboardInputHandler)
+    },
+    on_unload: function () {
+      document.removeEventListener('keydown', keyboardInputHandler)
+    },
     on_finish: function (data) {
       var feedbackarray = []
       for (i = 0; i < correctSEQ.length; i++) {
