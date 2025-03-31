@@ -95,6 +95,14 @@
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 20px;
+
+  /* 太空蓝默认颜色 */
+  background-color: #1f3b75; /* ⬅ 默认按钮色：深太空蓝 */
+  color: white;
+  border: 2px solid #1f3b75; /* 同步按钮边框颜色 */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .num-button_sspan {
@@ -107,6 +115,29 @@
   /* padding: 10px 10px; */
   font-size: 28px;
   font-weight: bold;
+}
+
+/* === BUTTON HOVER === */
+.num-button:hover,
+.num-button:focus {
+  background-color: #355ca3; /* ⬅ Hover 时的亮太空蓝 */
+  border-color: #355ca3;
+}
+
+/* === BUTTON PRESSED / HIGHLIGHTED === */
+.highlighted {
+  background-color: #50a4ff !important; /* ⬅ 按下后的高亮太空蓝 */
+  border-color: #50a4ff !important;
+  color: white !important;
+}
+
+/* === BUTTON DISABLED STATE === */
+.disabled-button {
+  background-color: #999999 !important; /* ⬅ 灰色，表示已禁用 */
+  border-color: #777 !important;
+  color: #ddd !important;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 .clear_button {
@@ -218,6 +249,7 @@ body {
   z-index: 1000;
 }
 
+/* animation for the end of the whole game */
 .final-caret {
   animation-fill-mode: forwards;
   animation: none;
