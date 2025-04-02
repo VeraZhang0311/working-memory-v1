@@ -1417,11 +1417,11 @@ function startLspanGame(participantID, onGameEnd) {
       preload,
       lspan_welcome,
       letter_practice_final,
-      // sentence_practice_final,
-      // lettersentence_practice_final,
-      // final_combined_runs,
-      // lspan_done,
-      // lspan_summary,
+      sentence_practice_final,
+      lettersentence_practice_final,
+      final_combined_runs,
+      lspan_done,
+      lspan_summary,
     ],
   }
 

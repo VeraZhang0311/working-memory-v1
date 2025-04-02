@@ -1462,12 +1462,12 @@ is not remembered, they are instructued to leave this box blank.
     timeline: [
       rspan_welcome,
       letter_practice_final,
-      // sentence_practice_final,
-      // lettersentence_practice_final,
-      // final_combined_runs,
-      // final_combined_runs,
-      // rspan_done,
-      // rspan_summary,
+      sentence_practice_final,
+      lettersentence_practice_final,
+      final_combined_runs,
+      final_combined_runs,
+      rspan_done,
+      rspan_summary,
     ],
   }
 

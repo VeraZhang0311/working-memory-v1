@@ -1436,19 +1436,20 @@ is not remembered, they are instructued to leave this box blank.
       preload,
       sspan_welcome,
       square_practice_final,
-      // picture_practice_final,
-      // squarepicture_practice_final,
-      // final_combined_runs,
-      // final_combined_runs,
-      // sspan_done,
-      // sspan_summary,
+      picture_practice_final,
+      squarepicture_practice_final,
+      final_combined_runs,
+      final_combined_runs,
+      sspan_done,
+      sspan_summary,
     ],
   }
+
+  timeline.push(sspan_final)
 
   if (game_counts > 0) {
     timeline.push(nextGame)
   }
 
-  timeline.push(sspan_final)
   jsPsych.run(timeline)
 }
