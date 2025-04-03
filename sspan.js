@@ -169,7 +169,7 @@ function startSspanGame(participantID, onGameEnd) {
         .mission-welcome {
           opacity: 0;
           font-size: 64px;
-          color: black;
+          color: white;
           font-family: 'Orbitron', sans-serif;
           text-align: center;
           position: fixed;

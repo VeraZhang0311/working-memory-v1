@@ -11,13 +11,22 @@ body {
   align-items: center;
 }
 
+body {
+  background-image: url('public/space_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
 #experiment-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* slight black tint */
   z-index: 1000;
   display: flex;
   justify-content: center;
