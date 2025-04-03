@@ -158,11 +158,11 @@ body {
 
 .fullscreenStyle {
   display: block;
-  height: 90vh;
-  width: 90vw;
+  height: 60vh;
+  width: 60vw;
   cursor: pointer;
   text-align: center;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
   background-repeat: no-repeat;
   border: 2px solid black;
   overflow: hidden;
@@ -208,8 +208,9 @@ body {
   border-color: #000000;
   border-width: 2px;
   padding-top: 10px;
-  background-color: #e8e8e8;
+  background-color: rgba(0, 0, 0, 0.3);
   font-size: 40px;
+  color: white;
   width: 42px;
   height: 42px;
   text-align: center;
@@ -225,8 +226,9 @@ body {
   border-color: #000000;
   border-width: 2px;
   padding-top: 10px;
-  background-color: #e8e8e8;
+  background-color: rgba(0, 0, 0, 0.3);
   font-size: 25px;
+  color: white;
   width: 300px;
   height: 65px;
   text-align: center;

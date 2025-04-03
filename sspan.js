@@ -595,7 +595,7 @@ is stored in the array 'calibRT'
         return (
           '<img src="' +
           practice_pictures[calibRTindex].stimulus +
-          '" style = "width: 1200px; height: 840px;">'
+          '" style="width: 100%; height: 100%; object-fit: contain; display: block; margin: auto;">'
         )
       },
     ],
@@ -718,7 +718,7 @@ is stored in the array 'calibRT'
         return (
           '<img src="' +
           main_pictures[mainSelectionIndex].stimulus +
-          '" style = "width: 1200px; height: 840px;">'
+          '" style="width: 100%; height: 100%; object-fit: contain; display: block; margin: auto;">'
         )
       },
     ],
@@ -1435,7 +1435,7 @@ is not remembered, they are instructued to leave this box blank.
     timeline: [
       preload,
       sspan_welcome,
-      square_practice_final,
+      // square_practice_final,
       picture_practice_final,
       squarepicture_practice_final,
       final_combined_runs,
