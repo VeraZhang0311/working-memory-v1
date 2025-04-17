@@ -849,18 +849,18 @@ function startLspanGame(participantID, onGameEnd) {
     '<p>Please recall the letters you saw to the best of your ability. If you do not remember a particular letter, use the SKIP button.<br><b>(When you are ready to lock in your answer, press ENTER or RETURN)</b></p>' +
     // Grid layout container
     '<div class="button-grid">' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">F</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">H</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">J</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">K</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">L</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">N</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">P</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">Q</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">R</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">S</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">T</button>' +
-    '<button class="square num-button" onclick="recordClick_rspan(this)">Y</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">F</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">H</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">J</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">K</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">L</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">N</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">P</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">Q</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">R</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">S</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">T</button>' +
+    '<button class="square num-button" onclick="recordClick_lspan(this)">Y</button>' +
     '</div>' +
     '<br>' +
     '<button class="clear_button" id="ClearButton" onclick="clearResponse_rspan()">BACKSPACE</button>' +
