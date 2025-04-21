@@ -1273,12 +1273,12 @@ function startOspanGame(participantID, onGameEnd) {
     timeline: [
       ospan_welcome,
       letter_practice_final,
-      // equation_practice_final,
-      // letterequation_practice_final,
-      // final_combined_runs,
-      // final_combined_runs,
-      // ospan_done,
-      // ospan_summary,
+      equation_practice_final,
+      letterequation_practice_final,
+      final_combined_runs,
+      final_combined_runs,
+      ospan_done,
+      ospan_summary,
     ],
   }
 

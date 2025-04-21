@@ -1435,7 +1435,7 @@ is not remembered, they are instructued to leave this box blank.
     timeline: [
       preload,
       sspan_welcome,
-      // square_practice_final,
+      square_practice_final,
       picture_practice_final,
       squarepicture_practice_final,
       final_combined_runs,
